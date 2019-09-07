@@ -22,7 +22,7 @@ public final class SwiftyBeaverProvider: Provider {
         services.register(Logger.self) { container -> SwiftyBeaverLogger in
             let dirConfig: DirectoryConfig = try container.make(DirectoryConfig.self)
             // Locate the swiftybeaver.json
-            let data = FileManager.default.contents(atPath: "\(dirConfig.workDir)Config/logs.config")!
+            let data = FileManager.default.contents(atPath: "\(dirConfig.workDir)Config/logs.json")!
 
             let destinations: [DestinationConfig] = try JSONDecoder().decode([DestinationConfig].self, from: data)
 
